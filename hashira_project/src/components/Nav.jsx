@@ -4,13 +4,17 @@ import Image from 'next/image'
 
 const Nav = () => {
   return (
-    <nav className="p-4 bg-black shadow-md w-80px">
+    <div className="flex justify-center py-4">
+    <nav className="shadow-lg shadow-white rounded-4xl px-4 py-3 w-[50%]">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="text-xl font-bold text-white flex items-center space-x-2">
-          <span className="border border-white rounded-full p-1">
-            <Image />
-          </span>
-          <span>COILAN</span>
+            <Image 
+              src="/Logo.png"
+              height={40}
+              width={40}
+              alt="Visa Logo"
+            />
+          <span>HASHIRAS</span>
         </Link>
 
         <ul className="hidden md:flex space-x-8 text-gray-100">
@@ -20,11 +24,12 @@ const Nav = () => {
           <li><Link href="/case-studies" className="hover:text-white">Contact</Link></li>
         </ul>
 
-        <Link href="/book-test" className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition">
-          Sign In/Up
+        <Link href="/sign-up" className="bg-white text-black px-4 py-2 rounded-4xl hover:bg-gray-300 transition">
+          Register 
         </Link>
       </div>
     </nav>
+    </div>
   )
 }
 

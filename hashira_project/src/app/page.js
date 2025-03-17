@@ -1,10 +1,9 @@
 import HomePage from "@/components/HomePage";
-import Nav from "@/components/Nav";
+import About from "@/pages/About";
 
 export default function Home() {
   return (
-    <div className="absolute top-0 left-0 w-full h-full animated-bg -z-10">
-      <Nav/>
+    <div>
       <HomePage/>
     </div>
   );

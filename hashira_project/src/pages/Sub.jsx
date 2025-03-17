@@ -2,7 +2,7 @@ import React from 'react'
 
 const Sub = () => {
   return (
-    <div>
+    <div className='sub'>
       ObjectivesPage
     </div>
   )

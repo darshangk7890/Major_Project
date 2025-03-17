@@ -18,14 +18,14 @@ const Nav = () => {
         </Link>
 
         <ul className="hidden md:flex space-x-8 text-gray-100">
-          <li><Link href="/features" className="hover:text-white">Home</Link></li>
-          <li><Link href="/technology" className="hover:text-white">About</Link></li>
-          <li><Link href="/case-studies" className="hover:text-white">Objectives</Link></li>
-          <li><Link href="/case-studies" className="hover:text-white">Contact</Link></li>
+          <li><Link href="/" className="hover:text-white">Home</Link></li>
+          <li><Link href="/about" className="hover:text-white">About</Link></li>
+          <li><Link href="/sub" className="hover:text-white">Objectives</Link></li>
+          <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
         </ul>
 
         <Link href="/sign-up" className="bg-white text-black px-4 py-2 rounded-4xl hover:bg-gray-300 transition">
-          Register 
+          Login
         </Link>
       </div>
     </nav>

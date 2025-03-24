@@ -4,24 +4,23 @@ import Sub from '@/pages/Sub'
 import React from 'react'
 import Nav from './Nav'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const HomePage = () => {
   return (
     <div className="absolute top-0 w-full left-0 animated-bg -z-10">
       <Nav />
       <br></br>
-      <div className='home flex w-full justify-center text-center h-40vh'>
+      <div className='contact flex w-full justify-center text-center h-30vh'>
         <div className="flex-col text-3xl justify-center min-h-screen">
           <p className='text-2xl text-justify pl-6 mx-10'>
             The <span className='gradient-text'>Hashiras</span> provides a streamlined service for visa approval and the status check of the visa application.
           </p>
-          <button
-            className="get-started-btn"
-            >
+          <Link href="/sign-in" className="get-started-btn">
             Get Started
-          </button>
+          </Link>
         </div>
-        <div className="flex w-1/2 justify-center">
+        <div className="home flex w-1/2 justify-center">
           <Image
             src="/Logo.png"
             height={50}

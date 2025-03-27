@@ -93,8 +93,8 @@ body {
 .get-started-btn:hover {
   background-color: #000000;
   color: #ffffff;
-  border: 5px rgb(255, 255, 255);
-  box-shadow: 0px 0px 30px rgb(78, 222, 225);
+  border: rgb(255, 255, 255);
+  box-shadow: 0px 0px 30px rgb(21, 101, 192);
 }
 
 .gradient-text {

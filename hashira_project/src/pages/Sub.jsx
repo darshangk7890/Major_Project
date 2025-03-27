@@ -52,7 +52,7 @@ const Features = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1.5, y: 0.5 } : {}}
       transition={{ duration: 1 }}
-      className="flex flex-col items-center py-20 text-center min-h-screen"
+      className="flex flex-col items-center py-20 text-center "
     >
       <h2 className="text-4xl font-bold text-white mb-4">OUR SERVICES</h2>
       <p className="text-lg text-gray-400 mb-10 max-w-xl">
@@ -63,7 +63,7 @@ const Features = () => {
             key={index}
             className={`p-6 rounded-lg transform transition duration-300 hover:-translate-y-3 ${index % 2 === 0
                 ? " text-white border-2 border-black shadow-lg shadow-black"
-                : " text-white border-2 border-white shadow-lg shadow-white"
+                : " text-white border-2 border-blue-500 shadow-lg shadow-blue-500"
               }`}
           >
             <div className="text-4xl mb-4 flex justify-center text-white">{service.icon}</div>

@@ -1,13 +1,23 @@
+//library imports
 const express = require('express');
 const dotenv = require('dotenv');
+const next = require('next');
 const cors = require('cors');
+
+//imports of backend
 const connectDB = require('./backend/DB_Config/db');
 const { errorHandler } = require('./backend/Middlewares/errorMiddleware');
 const userRoutes = require('./backend/Routes/userRoutes');
-const next = require('next');
-const nextServer = next({ dev: process.env.NODE_ENV !== 'production' });
 
+// Correct Next.js configuration
+const dev = process.env.NODE_ENV !== 'production';
+const nextServer = next({ dev });
+const handle = nextServer.getRequestHandler();
+
+//env file is loaded
 dotenv.config();
+
+//database integration
 connectDB();
 
 const app = express();

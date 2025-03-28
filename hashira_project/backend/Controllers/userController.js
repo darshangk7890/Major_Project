@@ -24,6 +24,7 @@ const registerUser = async (req, res) => {
       password,
       confirmPassword: hashedPassword,
     });
+    console.log(user);
 
     if (user) {
       res.status(201).json({

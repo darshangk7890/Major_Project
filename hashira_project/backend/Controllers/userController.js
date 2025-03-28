@@ -24,7 +24,6 @@ const registerUser = async (req, res) => {
       password,
       confirmPassword: hashedPassword,
     });
-    console.log(user);
 
     if (user) {
       res.status(201).json({
@@ -44,18 +43,16 @@ const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Check for user email
     const user = await User.findOne({ email });
 
     if (!user) {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
 
-    // Compare password with hashed password
     const isPasswordMatch = await bcrypt.compare(password, user.password);
 
     if (isPasswordMatch) {
-      res.json({
+      res.status(200).json({
         _id: user._id,
         username: user.username,
         email: user.email,

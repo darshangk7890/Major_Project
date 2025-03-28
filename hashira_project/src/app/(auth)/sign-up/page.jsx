@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
 import Loader from '@/components/Loader';
+import axios from 'axios';
+import { toast } from 'react-hot-toast';
 
 const SignUp = () => {
 
@@ -71,18 +73,22 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validateForm()) return;
+    // if (!validateForm()) return;
 
     setIsLoading(true);
     try {
-      // Add your signup API call here
-      // const response = await signUp(formData);
-
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
 
       // On successful signup
-      router.push('/sign-in');
+      const response = await axios.post('/api/v1/users/sign-up', {
+        username: formData.username,
+        email: formData.email,
+        password: formData.password,
+        confirmPassword: formData.confirmPassword
+      });
+      if (response.status === 201) {
+        toast.success('User created successfully');
+        router.push('/sign-in');
+      }
     } catch (error) {
       setErrors(prev => ({
         ...prev,

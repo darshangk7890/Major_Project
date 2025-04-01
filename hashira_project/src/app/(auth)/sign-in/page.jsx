@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { FaEnvelope, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
+import Loader from '@/components/Loader';
 
 const Login = () => {
   const router = useRouter();
@@ -16,6 +17,10 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+
+  if (isLoading) {
+    return <Loader />
+  }
 
   const validateForm = () => {
     const newErrors = {};
@@ -87,12 +92,12 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center animated-bg py-12 px-4 sm:px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-md w-full space-y-8 bg-gray-800 p-8 rounded-xl shadow-2xl"
+        className="max-w-md w-full space-y-8 border-2 border-blue-500 shadow-lg shadow-blue-500 p-8 rounded-xl shadow-2xl"
       >
         <div>
 
@@ -205,41 +210,6 @@ const Login = () => {
             </button>
           </div>
         </form>
-
-        {/* Social Login Options */}
-        <div className="mt-6">
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-600"></div>
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-gray-800 text-gray-400">Or continue with</span>
-            </div>
-          </div>
-
-          <div className="mt-6 grid grid-cols-2 gap-3">
-            <button
-              type="button"
-              className="w-full inline-flex justify-center py-2 px-4 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-sm font-medium text-gray-300 hover:bg-gray-600"
-            >
-              <img
-                className="h-5 w-5"
-                src="https://www.svgrepo.com/show/475656/google-color.svg"
-                alt="Google"
-              />
-            </button>
-            <button
-              type="button"
-              className="w-full inline-flex justify-center py-2 px-4 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-sm font-medium text-gray-300 hover:bg-gray-600"
-            >
-              <img
-                className="h-5 w-5"
-                src="https://www.svgrepo.com/show/475647/github-color.svg"
-                alt="GitHub"
-              />
-            </button>
-          </div>
-        </div>
       </motion.div>
     </div>
   );

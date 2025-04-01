@@ -61,23 +61,8 @@ body {
   height: 60vh;
 }
 
-@keyframes wave {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 .get-started-btn {
-  background: linear-gradient(-45deg,
-      #0d0d0d, #1f1f1f, #2a2a2a, #000000);
+  background: linear-gradient(-45deg, #ffffff, #269ad4, #33eae7);
   color: #1d1d1d;
   border: none;
   padding: 12px 30px;
@@ -101,4 +86,8 @@ body {
   background: linear-gradient(to right, #ffffff, #269ad4, #33eae7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.sender {
+  background: linear-gradient( #ffffff, #269ad4, #33eae7);
 }

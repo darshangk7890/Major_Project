@@ -1,75 +1,80 @@
-import Image from 'next/image'
-import React from 'react'
+"use client"
+import React from "react";
+import { FaHandshake, FaUserShield } from "react-icons/fa";
+import { RiShieldUserFill } from "react-icons/ri";
+import { MdAdminPanelSettings, MdPolicy } from "react-icons/md";
+import { FaLayerGroup } from "react-icons/fa6";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import Image from "next/image";
 
-const About = () => {
+const Features = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const services = [
+    {
+      title: "Success Prediction",
+      description: "Analyze visa trends and predict the likelihood of approval.",
+      icon: <Image src="/sp.svg" alt="Success Prediction" width={50} height={50} />,
+    },
+    {
+      title: "Error Detection",
+      description: " Identify common mistakes and suggest improvements to increase approval chances.",
+      icon: <Image src="/error.svg" alt="Success Prediction" width={50} height={50} />,
+    },
+    {
+      title: "Automated Document Verification",
+      description: " Check for missing, weak, or fraudulent documents to ensure compliance with visa guidelines.",
+      icon: <Image src="/verify.svg" alt="Success Prediction" width={50} height={50} />,
+    },
+    {
+      title: "Security & Privacy",
+      description: "Safeguard your personal data with our robust security measures.",
+      icon: <FaUserShield />,
+    },
+    {
+      title: "Application Enhancement",
+      description: "Identify common mistakes and suggest improvements to increase approval chances.",
+      icon: <Image src="/enhance.svg" alt="Success Prediction" width={50} height={50} /> ,
+    },
+    {
+      title: "Multi-Visa Support",
+      description: " Assist users in different visa categories like Student, Work, and Tourist across various countries.",
+      icon: <FaLayerGroup />,
+    },
+  ];
+
   return (
-    <div className='about'>
-      <div className='home flex justify-center '>
-        <Image
-          src="/Logo.png"
-          height={50}
-          width={300}
-          alt="Visa Logo"
-        />
-        <div className="flex w-full justify-center text-center pr-10 items-center ">
-          <div className="max-w-5xl mx-auto p-6 text-center">
-            <h1 className="text-3xl font-bold">
-              Why should you choose <span className="text-blue-500">Hashiras</span>?
-            </h1>
-            <div className="mt-6 space-y-6 items-center">
-              <div className="flex items-start space-x-6">
-                <span className="bg-blue-500 text-white font-bold w-8 h-8 flex items-center justify-center rounded-full">
-                  1
-                </span>
-                <div className='w-full flex flex-col'>
-                  <h2 className="text-xl font-semibold items-center">Increased Approval Chances</h2>
-                  <p className="text-aqua">
-                    Utilizes MLOps to analyze past visa trends, predict approval chances, and identify common rejection reasons with actionable suggestions for improvement.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <span className="bg-blue-500 text-white font-bold w-8 h-8 flex items-center justify-center rounded-full">
-                  2
-                </span>
-                <div className='w-full flex flex-col'>
-                  <h2 className="text-xl font-semibold">Time & Cost Efficiency</h2>
-                  <p className="text-aqua">
-                    Reduces re-application fees by minimizing rejections.
-                    Provides instant assessments, avoiding long consultation waits.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <span className="bg-blue-500 text-white font-bold w-8 h-8 flex items-center justify-center rounded-full">
-                  3
-                </span>
-                <div className='w-full flex flex-col'>
-                  <h2 className="text-xl font-semibold">Personalized Application Enhancement</h2>
-                  <p className="text-aqua">
-                    Reviews documents and highlights weak points.
-                    Offers customized suggestions to improve success rates.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <span className="bg-blue-500 text-white font-bold w-8 h-8 flex items-center justify-center rounded-full">
-                  4
-                </span>
-                <div className='w-full flex flex-col'>
-                  <h2 className="text-xl font-semibold"> Fraud Prevention & Compliance Checks</h2>
-                  <p className="text-aqua">
-                    Detects fake documents and warns users.
-                    Ensures applications comply with visa guidelines.
-                  </p>
-                </div>
-              </div>
-            </div>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={inView ? { opacity: 1.5, y: 0.5 } : {}}
+      transition={{ duration: 1 }}
+      className="flex flex-col items-center py-20 text-center "
+    >
+      <h2 className="text-4xl font-bold text-white mb-4">Why Choose <span className="text-blue-500">Us</span>?</h2>
+      <p className="text-lg text-gray-400 mb-10 max-w-xl">
+        Discover how our platform enhances your visa application process, increasing approval chances with smart predictions and personalized guidance      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl">
+        {services.map((service, index) => (
+          <div
+            key={index}
+            className={`p-6 rounded-lg transform transition duration-300 hover:-translate-y-3 ${index % 2 === 0
+                ? " text-white border-2 border-black shadow-lg shadow-black"
+                : " text-white border-2 border-blue-500 shadow-lg shadow-blue-500"
+              }`}
+          >
+            <div className="text-4xl mb-4 flex justify-center text-white">{service.icon}</div>
+            <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+            <p className="text-black dark:text-gray-300">{service.description}</p>
           </div>
-        </div>
+        ))}
       </div>
-    </div>
-  )
-}
+    </motion.div>
+  );
+};
 
-export default About
+export default Features;

@@ -1,11 +1,14 @@
 "use client"
 import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import Image from "next/image";
 import { FaHandshake, FaUserShield } from "react-icons/fa";
 import { RiShieldUserFill } from "react-icons/ri";
 import { MdAdminPanelSettings, MdPolicy } from "react-icons/md";
 import { FaLayerGroup } from "react-icons/fa6";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { GoDiscussionClosed } from "react-icons/go";
+import { TbArrowGuide } from "react-icons/tb";
 
 const Features = () => {
   const [ref, inView] = useInView({
@@ -15,34 +18,34 @@ const Features = () => {
 
   const services = [
     {
-      title: "Success Prediction",
-      description: "Analyze visa trends and predict the likelihood of approval.",
-      icon: <MdAdminPanelSettings />,
+      title: "Real-Time Policy Updates & Alerts",
+      description: " Stay informed about visa rule changes and deadlines.",
+      icon: <Image src="/alert.svg" alt="Success Prediction" width={50} height={50} />,
     },
     {
-      title: "Trusted Partnerships",
-      description: "Collaborate with industry leaders to enhance your digital identity ecosystem.",
+      title: "Visa Eligibility Checker",
+      description: "Instantly check if you meet the visa requirements.",
+      icon: <Image src="/check.svg" alt="Success Prediction" width={50} height={50} />,
+    },
+    {
+      title: "Mock Visa Interviews ",
+      description: "Practice and improve your chances of passing visa interviews.",
+      icon: <GoDiscussionClosed />,
+    },
+    {
+      title: "Country-Specific Visa Assistance",
+      description: " Get tailored advice for different visa types and destinations.",
       icon: <FaHandshake />,
     },
     {
-      title: "Security & Privacy",
-      description: "Safeguard your personal data with our robust security measures.",
-      icon: <FaUserShield />,
+      title: "Step-by-Step Application Assistance",
+      description: " Simplify the application process with guided steps.",
+      icon: <Image src="/steps.svg" alt="Success Prediction" width={50} height={50} />,
     },
     {
-      title: "Application Enhancement",
-      description: "Identify common mistakes and suggest improvements to increase approval chances.",
-      icon: <RiShieldUserFill />,
-    },
-    {
-      title: "Compliance & Regulation",
-      description: "Ensure your digital identity practices meet embassy standards and legal requirements.",
-      icon: <MdPolicy />,
-    },
-    {
-      title: "Multi-Visa Support",
+      title: "Personalized Consultation & Guidance ",
       description: " Assist users in different visa categories like Student, Work, and Tourist across various countries.",
-      icon: <FaLayerGroup />,
+      icon: <TbArrowGuide />,
     },
   ];
 
@@ -54,7 +57,7 @@ const Features = () => {
       transition={{ duration: 1 }}
       className="flex flex-col items-center py-20 text-center "
     >
-      <h2 className="text-4xl font-bold text-white mb-4">OUR SERVICES</h2>
+      <h2 className="text-4xl font-bold text-white mb-4">OUR <span className="text-blue-500">SERVICES</span></h2>
       <p className="text-lg text-gray-400 mb-10 max-w-xl">
         Discover how our platform enhances your visa application process, increasing approval chances with smart predictions and personalized guidance      </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl">
@@ -62,8 +65,8 @@ const Features = () => {
           <div
             key={index}
             className={`p-6 rounded-lg transform transition duration-300 hover:-translate-y-3 ${index % 2 === 0
-                ? " text-white border-2 border-black shadow-lg shadow-black"
-                : " text-white border-2 border-blue-500 shadow-lg shadow-blue-500"
+                ? " text-white border-2 border-blue-500 shadow-lg shadow-blue-500"
+                : " text-white border-2 border-black shadow-lg shadow-black"
               }`}
           >
             <div className="text-4xl mb-4 flex justify-center text-white">{service.icon}</div>

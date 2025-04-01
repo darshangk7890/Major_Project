@@ -26,15 +26,18 @@ const HomePage = () => {
     <div className="absolute top-0 w-full left-0 animated-bg -z-10">
       <Nav />
       <br></br>
-      <div className='contact flex w-full justify-center text-center h-30vh'>
+      <div className='contact flex w-full justify-center  h-30vh'>
         <div className="flex-col text-3xl justify-center min-h-screen">
+        <h2 className="text-4xl font-bold text-white mb-4 text-justify pl-6 mx-10 "><span className="gradient-text">HASHIRAS</span></h2>
           <p className='text-2xl text-justify pl-6 mx-10'>
-            The <span className='gradient-text'>Hashiras</span> provides a streamlined service for visa approval and the status check of the visa application.
+            The <span>Hashiras</span> provides a streamlined service for visa approval and the status check of the visa application.
           </p>
           <br></br>
+          <div className="text-center">
           <Link href="/sign-up" className="get-started-btn">
             Get Started
           </Link>
+          </div>
         </div>
         <div className="home flex w-1/2 justify-center">
           <Image

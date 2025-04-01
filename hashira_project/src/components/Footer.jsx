@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="border-t border-blue-600 shadow-blue-600 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Hashiras. All rights reserved.
+              © {new Date().getFullYear()}<a href="" download target="_blank" rel="noopener noreferrer">Hashiras.</a> All rights reserved.
             </p>
             
             {/* Social Links */}

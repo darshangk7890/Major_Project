@@ -21,6 +21,10 @@ const SignUp = () => {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
+  if (isLoading) {
+    return <Loader />
+  }
+
   const validateForm = () => {
     const newErrors = {};
 
@@ -87,7 +91,8 @@ const SignUp = () => {
       });
       if (response.status === 201) {
         toast.success('User created successfully');
-        router.push('/sign-in');
+        router.push('/dashboard');
+        return <Loader/>
       }
     } catch (error) {
       setErrors(prev => ({
@@ -106,11 +111,11 @@ const SignUp = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-md w-full space-y-8 bg-gray-800 p-8 rounded-xl shadow-2xl"
+        className="max-w-md w-full space-y-8  p-8 rounded-xl shadow-2xl border-2 border-blue-500 shadow-lg shadow-blue-500 "
       >
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
-            Create your account
+            Create your <span className='text-blue-500'>Account</span>
           </h2>
           <p className="mt-2 text-center text-sm text-gray-400">
             Already have an account?{' '}
